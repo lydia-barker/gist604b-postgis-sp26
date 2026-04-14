@@ -12,7 +12,10 @@
 -- Note: Units will be in square meters (CRS is UTM Zone 18N, EPSG:26918)
 
 -- TODO: Write your query below
-
+SELECT 
+    ST_Area(geom) AS new_brighton_area_sq_m
+FROM nyc_neighborhoods
+WHERE name = 'New Brighton';
 
 
 
@@ -28,7 +31,10 @@
 -- Hint: Filter rows where boroname = 'The Bronx'
 
 -- TODO: Write your query below
-
+SELECT 
+    ST_Area(ST_Union(geom)) / 4046.86 AS bronx_area_acres
+FROM nyc_neighborhoods
+WHERE boroname = 'The Bronx';
 
 
 
@@ -44,7 +50,10 @@
 -- Hint: ST_NumInteriorRings(geom) = 0 means no holes (interior rings)
 
 -- TODO: Write your query below
-
+SELECT 
+    COUNT(*) AS no_hole_polygons
+FROM nyc_census_blocks
+WHERE ST_NumInteriorRings(geom) = 0;
 
 
 
@@ -60,7 +69,9 @@
 -- Hint: Use the nyc_streets table
 
 -- TODO: Write your query below
-
+SELECT 
+    SUM(ST_Length(geom)) / 1609.34 AS total_length_miles
+FROM nyc_streets;
 
 
 
@@ -76,7 +87,10 @@
 -- Hint: Filter rows where name = '5th Ave'
 
 -- TODO: Write your query below
-
+SELECT 
+    SUM(ST_Length(geom)) AS fifth_ave_length
+FROM nyc_streets
+WHERE name = '5th Ave';
 
 
 
@@ -91,7 +105,10 @@
 -- Hint: Filter rows where name = 'Soho'
 
 -- TODO: Write your query below
-
+SELECT 
+    ST_AsGeoJSON(geom) AS soho_geojson
+FROM nyc_neighborhoods
+WHERE name = 'Soho';
 
 
 
@@ -106,7 +123,10 @@
 -- Hint: Use the nyc_neighborhoods table
 -- Hint: Filter rows where name = 'Coney Island'
 
-
+SELECT 
+    ST_NumGeometries(geom) AS num_coney_island_polygons
+FROM nyc_neighborhoods
+WHERE name = 'Coney Island';
 
 -- Exercise 8: What are the 5 longest roads in NYC?
 -- Expected output: five rows with road names and lengths in meters
@@ -124,5 +144,10 @@
 -- Hint: ORDER BY ST_Length(geom) DESC OR use the alias length_meters
 -- Hint: Use LIMIT 5
 
-
+SELECT 
+    name,
+    ST_Length(geom) AS length_meters
+FROM nyc_streets
+ORDER BY length_meters DESC
+LIMIT 5;
 
