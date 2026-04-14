@@ -25,7 +25,9 @@ FROM nyc_census_blocks;
 -- Hint: Filter rows where boroname = 'Manhattan'
 
 -- TODO: Write your query below
-
+SELECT SUM(popn_total) AS manhattan_pop
+FROM nyc_census_blocks
+WHERE boroname = 'Manhattan';
 
 
 -- Exercise 3: For each borough, what percentage of the population is black?
@@ -45,7 +47,12 @@ FROM nyc_census_blocks;
 -- Hint: Use ORDER BY boroname for readability
 
 -- TODO: Write your query below
-
+SELECT 
+    boroname,
+    (SUM(popn_black) / SUM(popn_total) * 100.0) AS percentage_black
+FROM nyc_census_blocks
+GROUP BY boroname
+ORDER BY boroname;
 
 
 
@@ -65,3 +72,9 @@ FROM nyc_census_blocks;
 -- Hint: Use ORDER BY avg_population DESC for readability
 
 -- TODO: Write your query below
+SELECT 
+    boroname,
+    AVG(popn_total) AS avg_population
+FROM nyc_census_blocks
+GROUP BY boroname
+ORDER BY avg_population DESC;
