@@ -1,6 +1,30 @@
 # GIST 604B – PostGIS
 
-Repository for working with spatial data using PostgreSQL and PostGIS.
+**Student:** Lydia Barker
+**Course:** GIST 604B – Open Source GIS
+**Module:** Module 4 - Post GIS Database Orchestration
+**University of Arizona**
+
+## Project Description
+This project workflow began by importing shapefiles and spatial datasets in order to answer questions about geographic areas and populations. Examples of questions answered in this repository are:
+- "What is the Asian population in the city of New York?"
+- "Approximately how many people live within 50 meters of Queensboro?"
+
+## Tools and Technologies
+- PostgresSQL
+- PostGIS
+
+## What I Did
+- PostGIS Environment set-up for storing and queries of spatial data
+- Downloaded a NYC dataset and extracted the data (unzipped) to add to the project's directory
+- Imported the spatial data into the PostGIS database
+- Tested queries from extracted data
+
+## How to View / Run
+[Instructions for viewing the project. For example:
+- Link to live GitHub Pages site (if applicable)
+- How to run a Python script
+- How to open the map]
 
 ## Repository Structure
 
