@@ -21,8 +21,9 @@ This project workflow began by importing shapefiles and spatial datasets in orde
 - Tested queries from extracted data
 
 ## How to View / Run
-- You will first need to set up a PostGIS environment in order to store and query the data and enable PostGIS
-- You can then download the sample data by running this command in the terminal: wget https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip
+- Fork the repository and open it in a GitHub Codespace
+- Set up a PostGIS environment in order to store and query the data and enable PostGIS
+- Download the sample data by running this command in the terminal: wget https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip
 - Unzip the file with this command: unzip postgis-workshop-2020.zip
 - Load the unzipped file into your PostGIS database
 - Import relevant shaefiles
