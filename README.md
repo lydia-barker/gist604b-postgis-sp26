@@ -21,10 +21,12 @@ This project workflow began by importing shapefiles and spatial datasets in orde
 - Tested queries from extracted data
 
 ## How to View / Run
-[Instructions for viewing the project. For example:
-- Link to live GitHub Pages site (if applicable)
-- How to run a Python script
-- How to open the map]
+- You will first need to set up a PostGIS environment in order to store and query the data and enable PostGIS
+- You can then download the sample data by running this command in the terminal: wget https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip
+- Unzip the file with this command: unzip postgis-workshop-2020.zip
+- Load the unzipped file into your PostGIS database
+- Import relevant shaefiles
+- Run the queries developed in the sql folder in this repository
 
 ## Repository Structure
 
@@ -45,10 +47,3 @@ This project workflow began by importing shapefiles and spatial datasets in orde
     │   └── demo_postgis_queries.sql
     └── docker-compose.yml
 
-## Notes
-
-- demos folder contains sql scripts discussed in the lectures.
-- SQL files contain exercises and hints.
-- Write and execute queries directly in the `sql/` files using the VS Code PostgreSQL extension.
-- Data is downloaded and prepared inside the Codespace environment and is not stored in this repository.
-- The database runs in a separate PostGIS container using Docker.
